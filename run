@@ -2,30 +2,13 @@
 
 <?php
 
-$opts = getopt("b:");
+include "src/Dates/BirthDates.php";
 
-// print_r($opts);
+$birthDate = "1976-07-24";
 
-$birthDate = $opts["b"] ?? "1976-07-24";
-$todayDate = date("Y-m-d");
+$days = new Prospero\Dates\BirthDates($birthDate);
 
-
-$birthTime = strtotime($birthDate);
-$todayTime = strtotime($todayDate);
-
-// print_r($birthTime);
-
-$totalsecs = $todayTime - $birthTime;
-$totalDays = floor($totalsecs / 3600 / 24);
-
-// print_r($totalsecs);
-
-// $oo = getdate($totalsecs);
-
-// print_r($oo);
-
-// print_r(getdate($birthTime));
+$totalDays = $days->findTotalDays();
 
 echo "$birthDate: $totalDays\n";
 
-// test
