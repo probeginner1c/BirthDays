@@ -2,13 +2,28 @@
 
 <?php
 
-$birthDate = "1976-07-24";
+$opts = getopt("b:");
+
+// print_r($opts);
+
+$birthDate = $opts["b"] ?? "1976-07-24";
 $todayDate = date("Y-m-d");
+
 
 $birthTime = strtotime($birthDate);
 $todayTime = strtotime($todayDate);
 
+// print_r($birthTime);
+
 $totalsecs = $todayTime - $birthTime;
 $totalDays = floor($totalsecs / 3600 / 24);
+
+// print_r($totalsecs);
+
+// $oo = getdate($totalsecs);
+
+// print_r($oo);
+
+// print_r(getdate($birthTime));
 
 echo "$birthDate: $totalDays\n";
