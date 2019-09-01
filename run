@@ -2,9 +2,9 @@
 
 <?php
 
-include "src/Dates/BirthDates.php";
+include 'src/Dates/BirthDates.php';
 
-$birthDate = "1976-07-24";
+$birthDate = '1976-07-24';
 
 $days = new Prospero\Dates\BirthDates($birthDate);
 
